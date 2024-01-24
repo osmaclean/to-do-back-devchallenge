@@ -3,10 +3,12 @@ import { create } from './create'
 import { update } from './update'
 import { getAllTasks } from './getAllTasks'
 import { getById } from './getById'
+import { remove } from './remove'
 
 export const tasksRoutes = async (app: FastifyInstance) => {
   app.post('/create', create)
   app.put('/update/:id', update)
   app.get('/tasks', getAllTasks)
   app.get('/tasks/:id', getById)
+  app.delete('/remove/:id', remove)
 }

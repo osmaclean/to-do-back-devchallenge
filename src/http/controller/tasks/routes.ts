@@ -4,6 +4,7 @@ import { update } from './update'
 import { getAllTasks } from './getAllTasks'
 import { getById } from './getById'
 import { remove } from './remove'
+import { editFavorite } from './editFavorite'
 
 export const tasksRoutes = async (app: FastifyInstance) => {
   app.post('/create', create)
@@ -11,4 +12,5 @@ export const tasksRoutes = async (app: FastifyInstance) => {
   app.get('/tasks', getAllTasks)
   app.get('/tasks/:id', getById)
   app.delete('/remove/:id', remove)
+  app.patch('/tasks/favorite/:id', editFavorite)
 }

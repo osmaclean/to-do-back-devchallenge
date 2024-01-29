@@ -1,9 +1,14 @@
 import fastify from 'fastify'
 import { ZodError } from 'zod'
 import { tasksRoutes } from './http/controller/tasks/routes'
+import cors from '@fastify/cors'
 
 export const app = fastify()
-
+app.register(cors, {
+  origin: true,
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+  credentials: true,
+})
 app.register(tasksRoutes)
 
 app.setErrorHandler((error, _, reply) => {
